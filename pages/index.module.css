@@ -1,0 +1,105 @@
+.container {
+  padding: 2rem;
+  max-width: 800px; /* Adjust based on preferred max-width */
+  margin: auto;
+  font-family: 'Roboto', sans-serif;
+  background-color: #ffffff; /* Optional: Add background color for contrast if needed */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  border-radius: 10px; /* Rounded corners for the container */
+}
+
+.logo {
+  width: 60px; /* Adjust based on your logo */
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+.title {
+  color: #333;
+  margin: 0.5rem 0; /* Reduce top margin */
+  font-size: 2.5rem; /* Larger font size for the title */
+}
+
+.sub {
+  color: #666;
+  font-size: 1.2rem;
+  margin-bottom: 2rem; /* Increased bottom margin for spacing */
+}
+
+/* Search form and input */
+.searchForm {
+  width: 100%;
+  margin: 2rem 0; /* Increased margin for better spacing */
+}
+
+.inputWrapper {
+  width: 100%;
+}
+
+.searchInput {
+  width: calc(100% - 44px); /* Adjust width to ensure padding does not exceed parent width */
+  margin: 0 auto;
+  display: block;
+  padding: 1rem;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.searchInput:focus {
+  border-color: #4285F4;
+  box-shadow: 0 0 8px rgba(66, 133, 244, 0.2);
+}
+
+.searchButton {
+  padding: 0.6rem 1.2rem;
+  background-color: #4285F4; /* Brand color */
+  color: #ffffff;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 1rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.searchButton:hover {
+  background-color: #3068C4; /* Darker on hover */
+}
+
+/* Result section */
+.result {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f9f9f9; /* Lighter background for contrast */
+  border-radius: 10px; /* Rounded corners for the result section */
+  border: 1px solid #ddd; /* Subtle border */
+}
+
+.textarea{
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  color: #333; /* Dark color for readability */
+  min-height: 150px; /* Set a minimum height */
+  padding: 0.5rem;
+}
+
+
+.editButton, .saveButton {
+  background-color: #4CAF50; /* Use a different color for actions */
+  color: #ffffff;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.editButton:hover, .saveButton:hover {
+  background-color: #43A047; /* Darker shade on hover */
+}

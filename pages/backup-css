@@ -1,0 +1,160 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.logo {
+  width: 100px;
+}
+
+.title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px; /* Adjust based on your design */
+  color: #333; /* Dark text color */
+  text-align: center; /* Center align text */
+  margin-bottom: 8px; /* Space between title and subtitle */
+}
+
+.sub {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px; /* Smaller font size for the subtitle */
+  color: #666; /* Slightly lighter text color */
+  text-align: center; /* Center align text */
+  background-color: #f2f2f2; /* Light background color */
+  display: inline-block; /* Align to the center of the container */
+  padding: 10px 20px; /* Padding around the text */
+  border-radius: 5px; /* Rounded corners for the background */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: Add a subtle shadow */
+  margin-top: 10px; /* Space from the title or previous element */
+}
+
+.googleGemini {
+  font-weight: 700; /* Bold for 'Google Gemini' */
+  color: #4285F4; /* Google's brand blue color */
+}
+
+
+
+.searchForm {
+  margin-top: 20px;
+}
+/* ... your existing styles ... */
+
+.inputWrapper {
+  display: inline-block;
+  position: relative;
+  max-width: 100%; /* To ensure it doesn't overflow its parent */
+}
+
+.hiddenSpan {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: pre-wrap; /* This keeps the formatting of the text */
+  visibility: hidden; /* Hide the span from view */
+  font-size: 1rem; /* Ensure this matches the input font size */
+  padding: 10px;
+  width: 100%; /* Set a width to avoid horizontal growth */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+
+
+.searchInput {
+  width: 700px;
+  padding: 10px;
+  border: 1px solid #dfe1e5;
+  border-radius: 24px;
+  outline: none;
+  font-size: 16px;
+  margin-right: 10px;
+  resize:auto;         /* Prevent manual resize */
+  overflow-y: hidden;      /* Enable vertical scroll if content exceeds the height */
+  height: auto;          /* Allow height to adjust based on content */
+  min-height: 15px;      /* Set a minimum height */
+  max-height: max-content;
+}
+.saveButton {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.searchButton {
+  padding: 10px 15px;
+  background-color: #f8f9fa;
+  border: 1px solid #dfe1e5;
+  border-radius: 4px;
+  outline: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.searchButton:hover {
+  background-color: #e8e8e8;
+}
+
+.result {
+  margin-top: 20px;
+  width: 80%;
+  max-width: 900px;
+  border: 1px solid #dfe1e5;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 300px; /* Add this line for a minimum height */
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  resize: none;
+}
+
+.editButton {
+  margin-top: 10px;
+  padding: 5px 10px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  
+
+  background-color: #12122fe8;
+  border: 1px solid #dfe1e5;
+  border-radius: 4px;
+  outline: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.editButton:hover {
+  background-color: #8cb788;
+}
+
+.sub {
+  flex-direction: column-reverse;
+  float: right;
+  font-size: 15px;
+  align-items:self-end;
+  font-family: 'Courier New', Courier, monospace;
+}
