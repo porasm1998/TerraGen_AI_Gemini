@@ -1,0 +1,65 @@
+const { OpenAIClient, AzureKeyCredential } = require("@azure/openai");
+require('dotenv').config();
+
+// Set the Azure and AI Search values from environment variables
+const endpoint = process.env["AZURE_OPENAI_ENDPOINT"];
+const azureApiKey = process.env["AZURE_OPENAI_API_KEY"];
+const deploymentId = process.env["AZURE_OPENAI_DEPLOYMENT_ID"];
+const searchEndpoint = process.env["AZURE_AI_SEARCH_ENDPOINT"];
+const searchKey = process.env["AZURE_AI_SEARCH_API_KEY"];
+const searchIndex = process.env["AZURE_AI_SEARCH_INDEX"];
+
+async function main(req, res) {
+  const client = new OpenAIClient({ endpoint: endpoint, credential: new AzureKeyCredential(azureApiKey) });
+
+  const prompt = req.body.prompt || '';
+  if (prompt.trim().length === 0) {
+    res.status(400).json({
+      error: {
+        message: "Please enter a valid prompt"
+      }
+    });
+    return;
+  }
+
+  const messages = [
+    { role: "user", content: `convert ${prompt} into terraform scripts` },
+  ];
+
+  console.log(`Message: ${messages.map((m) => m.content).join("\n")}`);
+
+  try {
+    const events = await client.streamChatCompletions(deploymentId, messages, { 
+      maxTokens: 128,
+      azureExtensionOptions: {
+        extensions: [
+          {
+            type: "AzureCognitiveSearch",
+            endpoint: searchEndpoint,
+            key: searchKey,
+            indexName: searchIndex,
+          },
+        ],
+      },
+    });
+    let responseText = "";
+    for await (const event of events) {
+      for (const choice of event.choices) {
+        const newText = choice.delta?.content;
+        if (newText) {
+          responseText += newText;
+        }
+      }
+    }
+    res.status(200).json({ result: responseText });
+  } catch (error) {
+    console.error(`Error with Azure OpenAI request: ${error.message}`);
+    res.status(500).json({
+      error: {
+        message: 'An error occurred during your request'
+      }
+    });
+  }
+}
+
+module.exports = { main };
